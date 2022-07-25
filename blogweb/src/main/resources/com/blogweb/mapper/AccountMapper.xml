@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+				 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.blogweb.mapper.AccountMapper">
+	<resultMap type="User" id="userResultMap">
+		<id column="user_no" property="userNo" />
+		<result column="id" property="userId" />
+		<result column="passwd" property="passwd" />
+		<result column="name" property="name" />
+		<result column="birth" property="birth" />
+		<result column="email" property="email" />
+		<result column="savedfilename" property="savedFileName" />
+		<result column="userfilename" property="userFileName" />
+	</resultMap>
+
+	<select id="findByUserIdAndPasswd" parameterType="User"
+		resultMap="userResultMap">
+		SELECT *FROM user WHERE id = #{userId}
+	</select>
+
+	<insert id="register" parameterType="User">
+		INSERT INTO user(id, passwd, name, email)
+		VALUES (#{userId}, #{passwd}, #{name}, #{email})
+	</insert>
+
+	<select id="checkId" parameterType="String" resultType="Int">
+		SELECT
+		count(*)FROM user WHERE id = #{checkId}
+	</select>
+</mapper>
