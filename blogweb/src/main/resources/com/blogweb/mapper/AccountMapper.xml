@@ -16,7 +16,7 @@
 
 	<select id="findByUserIdAndPasswd" parameterType="User"
 		resultMap="userResultMap">
-		SELECT *FROM user WHERE id = #{userId}
+		SELECT *FROM user WHERE id = #{userId} and passwd = #{passwd}
 	</select>
 
 	<insert id="register" parameterType="User">

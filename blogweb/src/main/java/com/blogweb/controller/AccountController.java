@@ -5,6 +5,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,13 +30,14 @@ public class AccountController {
 	}
 
 	@PostMapping(path = { "/login" })
-	public String login(User user, HttpSession session) {
+	public String login(User user, HttpSession session, Model model) {
 		User user2 = accountService.findByUserIdAndPasswd(user);
 		if (user2 != null) {
 			session.setAttribute("loginuser", user2);
 			System.out.println("LOGIN SUCCESS");
 		} else {
 			System.out.println("LOGIN FAIL");
+			model.addAttribute("login_fail", "아이디 또는 비밀번호를 확인해주세요.");
 		}
 		return "account/login";
 	}
@@ -56,7 +58,6 @@ public class AccountController {
 		accountService.register(user);
 		return "redirect:/home";
 	}
-
 
 	@PostMapping(path = { "checkId" })
 	@ResponseBody

@@ -39,6 +39,7 @@ https://templatemo.com/tm-556-catalog-z
 						<input type="password" name="passwd"
 							class="form-control rounded-0" placeholder="PW" required />
 					</div>
+					${ login_fail }
 					<div class="form-group tm-text-right">
 						<button type="submit" class="btn btn-primary">Login</button>
 					</div>
