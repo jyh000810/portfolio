@@ -10,7 +10,7 @@ import com.blogweb.mapper.AccountMapper;
 
 public class AccountServiceImpl implements AccountService {
 
-	AccountMapper accountMapper;
+	private AccountMapper accountMapper;
 
 	public AccountServiceImpl(AccountMapper accountMapper) {
 		this.accountMapper = accountMapper;

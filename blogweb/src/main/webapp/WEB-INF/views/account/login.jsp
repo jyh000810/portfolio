@@ -29,22 +29,21 @@ https://templatemo.com/tm-556-catalog-z
 		<div class="row tm-mb-50">
 			<div class="my-col-lg-4 col-12 mb-5">
 				<h2 class="tm-text-primary mb-5">Login</h2>
-				<form id="contact-form" action="login" method="POST"
-					class="tm-contact-form mx-auto">
+				<form id="contact-form" action="login" method="POST" class="tm-contact-form mx-auto">
+					<!-- 아이디 입력 -->
 					<div class="form-group">
-						<input type="text" name="userId" class="form-control rounded-0"
-							placeholder="ID" required />
+						<input type="text" name="userId" class="form-control rounded-0"	placeholder="ID" required />
 					</div>
+					<!-- 비밀번호 입력 -->
 					<div class="form-group">
-						<input type="password" name="passwd"
-							class="form-control rounded-0" placeholder="PW" required />
+						<input type="password" name="passwd" class="form-control rounded-0" placeholder="PW" required />
 					</div>
 					${ login_fail }
 					<div class="form-group tm-text-right">
 						<button type="submit" class="btn btn-primary">Login</button>
 					</div>
 				</form>
-				<p>아직 회원이 아니신가요? <a onclick="showRegister()">회원가입</a></p>
+				<p>아직 회원이 아니신가요? <a onclick="showRegister()" style="color: green;">회원가입</a></p>
 			</div>
 		</div>
 	</div>
@@ -60,4 +59,3 @@ function showRegister() {
 	opener.location.href="/blogweb/account/register";
 }
 </script>
-</html>

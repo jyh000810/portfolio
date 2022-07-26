@@ -18,7 +18,7 @@ import com.blogweb.service.AccountService;
 @RequestMapping(path = { "/account" })
 public class AccountController {
 
-	AccountService accountService;
+	private AccountService accountService;
 
 	public AccountController(AccountService accountService) {
 		this.accountService = accountService;

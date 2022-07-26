@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+				 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.blogweb.mapper.BoardMapper">
+
+	<resultMap type="Board" id="boardResultMap">
+		<id column="board_no" property="boardNo" />
+		<result column="title" property="title" />
+		<result column="writer" property="writer" />
+		<result column="content" property="content" />
+		<result column="regdate" property="regdate" />
+		<result column="deleted" property="deleted" />
+	</resultMap>
+
+	<insert id="insertBoard" parameterType="Board">
+		<selectKey keyProperty="boardNo" resultType="int"
+			order="AFTER">
+			SELECT LAST_INSERT_ID()
+		</selectKey>
+		INSERT INTO board (title,
+		writer, content)
+		VALUES (#{title}, #{writer},
+		#{content})
+	</insert>
+	<insert id="insertBoardAttach" parameterType="BoardAttach">
+		INSERT boardattach
+		(board_no, userfilename, savedfilename)
+		VALUES (#{boardNo},
+		#{userFileName}, #{savedFileName})
+	</insert>
+
+</mapper>

@@ -55,4 +55,33 @@ public class Util {
 
 		return hashedString;
 	}
+
+	public static String makeUniqueFileName(String path, String fileName) {
+		String name = fileName.substring(0, fileName.lastIndexOf("."));
+		String ext = fileName.substring(fileName.lastIndexOf("."));
+		int index = 1;
+		while (true) {
+			File file = new File(path + "\\" + name + "_" + index + ext);
+			if (file.exists())
+				index++;
+			else
+				break;
+		}
+
+		return name + "_" + index + ext;
+	}
+
+	/**
+	 * 고유한 파일 이름을 만드는 메서드
+	 * 
+	 * @param fileName
+	 * @return
+	 */
+	public static String makeUniqueFileName(String fileName) {
+		String ext = fileName.substring(fileName.lastIndexOf("."));
+
+		String name = UUID.randomUUID().toString();
+
+		return name + ext;
+	}
 }

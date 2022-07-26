@@ -5,8 +5,11 @@
 <configuration>
 	<typeAliases>
 		<typeAlias type="com.blogweb.dto.User" alias="User" />
+		<typeAlias type="com.blogweb.dto.Board" alias="Board" />
+		<typeAlias type="com.blogweb.dto.BoardAttach" alias="BoardAttach" />
 	</typeAliases>
 	<mappers>
 		<mapper resource="com/blogweb/mapper/AccountMapper.xml" />
+		<mapper resource="com/blogweb/mapper/BoardMapper.xml" />
 	</mappers>
 </configuration>

@@ -3,8 +3,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <nav class="navbar navbar-expand-lg">
 	<div class="container-fluid">
-		<a class="navbar-brand" href="#"> <i class="fas fa-film mr-2"></i>
-			Catalog-Z
+		<a class="navbar-brand" href="/blogweb/home"> <i class="fas fa-film mr-2"></i>
+			BLOG
 		</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse"
 			data-target="#navbarSupportedContent"
@@ -14,17 +14,15 @@
 		</button>
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav ml-auto mb-2 mb-lg-0">
-				<li class="nav-item"><a class="nav-link nav-link-1 active"
-					aria-current="page" href="index.html">Photos</a></li>
-				<li class="nav-item"><a class="nav-link nav-link-2"
-					href="videos.html">Videos</a></li>
 				<c:choose>
 					<c:when test="${ empty loginuser }">
-						<li class="nav-item"><a class="nav-link nav-link-3"
+						<li class="nav-item"><a class="nav-link nav-link-1"
 							onclick="showLogin()">로그인</a></li>
 					</c:when>
 					<c:otherwise>
-						<li class="nav-item"><a class="nav-link nav-link-4"
+						<li class="nav-item"><a class="nav-link nav-link-2"
+							href="/blogweb/board/write">글 작성</a></li>
+						<li class="nav-item"><a class="nav-link nav-link-3"
 							href="/blogweb/account/logout">로그아웃</a></li>
 					</c:otherwise>
 				</c:choose>

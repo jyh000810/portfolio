@@ -13,9 +13,9 @@
 		<property name="driverClassName"
 			value="com.mysql.cj.jdbc.Driver" />
 		<property name="url"
-			value="jdbc:mysql://3.39.193.11:3306/EndB" />
-		<property name="username" value="EndB" />
-		<property name="password" value="EndB" />
+			value="jdbc:mysql://127.0.0.1:3307/blogdb" />
+		<property name="username" value="blog" />
+		<property name="password" value="blog" />
 		<property name="maxTotal" value="20" />
 		<property name="maxIdle" value="10" />
 		<property name="maxWaitMillis" value="-1" />
@@ -35,5 +35,9 @@
 	<bean id="accountService"
 		class="com.blogweb.service.AccountServiceImpl">
 		<constructor-arg name="accountMapper" ref="accountMapper" />
+	</bean>
+	<bean id="boardService"
+		class="com.blogweb.service.BoardServiceImpl">
+		<constructor-arg name="boardMapper" ref="boardMapper" />
 	</bean>
 </beans>
