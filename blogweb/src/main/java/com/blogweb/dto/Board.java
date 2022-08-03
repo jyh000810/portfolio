@@ -4,14 +4,20 @@ import java.io.File;
 import java.sql.Date;
 import java.util.List;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 public class Board {
 	private int boardNo;
 	private String title;
 	private int writer;
+	private String name;
 	private String content;
-	private Date regDate;
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	private Date regdate;
 	private boolean deleted;
 	private List<BoardAttach> files;
+	private String thumbnail;
+	
 	
 	public int getBoardNo() {
 		return boardNo;
@@ -37,11 +43,11 @@ public class Board {
 	public void setContent(String content) {
 		this.content = content;
 	}
-	public Date getRegDate() {
-		return regDate;
+	public Date getRegdate() {
+		return regdate;
 	}
-	public void setRegDate(Date regDate) {
-		this.regDate = regDate;
+	public void setRegdate(Date regdate) {
+		this.regdate = regdate;
 	}
 	public boolean isDeleted() {
 		return deleted;
@@ -54,5 +60,17 @@ public class Board {
 	}
 	public void setFiles(List<BoardAttach> files) {
 		this.files = files;
+	}
+	public String getThumbnail() {
+		return thumbnail;
+	}
+	public void setThumbnail(String thumbnail) {
+		this.thumbnail = thumbnail;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
 	}
 }

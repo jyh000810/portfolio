@@ -23,6 +23,8 @@
 						<li class="nav-item"><a class="nav-link nav-link-2"
 							href="/blogweb/board/write">글 작성</a></li>
 						<li class="nav-item"><a class="nav-link nav-link-3"
+							href="/blogweb/mypage/info?userNo=${ loginuser.userNo }">마이페이지</a></li>
+						<li class="nav-item"><a class="nav-link nav-link-4"
 							href="/blogweb/account/logout">로그아웃</a></li>
 					</c:otherwise>
 				</c:choose>

@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Register</title>
+<title>회원가입</title>
 <link rel="stylesheet" href="/blogweb/resources/css/bootstrap.min.css">
 <link rel="stylesheet"
 	href="/blogweb/resources/fontawesome/css/all.min.css">
@@ -116,7 +116,7 @@ https://templatemo.com/tm-556-catalog-z
 				"url" : "checkId",
 				"method" : "post",
 				"async" : true,
-				"data" : "checkId=" + checkId, // boardno=1&writer=imauser1&content=test
+				"data" : "checkId=" + checkId,
 				"dataType" : "text",
 				"success" : function(data, status, xhr) {
 					if (data === "success") {

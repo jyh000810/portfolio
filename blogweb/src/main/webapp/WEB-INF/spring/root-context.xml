@@ -40,4 +40,8 @@
 		class="com.blogweb.service.BoardServiceImpl">
 		<constructor-arg name="boardMapper" ref="boardMapper" />
 	</bean>
+	<bean id="mypageService"
+		class="com.blogweb.service.MypageServiceImpl">
+		<constructor-arg name="mypageMapper" ref="mypageMapper" />
+	</bean>
 </beans>

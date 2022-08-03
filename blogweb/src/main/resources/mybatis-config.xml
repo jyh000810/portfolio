@@ -11,5 +11,6 @@
 	<mappers>
 		<mapper resource="com/blogweb/mapper/AccountMapper.xml" />
 		<mapper resource="com/blogweb/mapper/BoardMapper.xml" />
+		<mapper resource="com/blogweb/mapper/MypageMapper.xml" />
 	</mappers>
 </configuration>

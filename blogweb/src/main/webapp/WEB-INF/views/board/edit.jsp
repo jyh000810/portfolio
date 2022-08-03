@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,17 +14,20 @@
 </head>
 
 <body style="padding: 50px">
-	<form id="contact-form" action="write" method="POST" enctype="multipart/form-data"
+	<form id="contact-form" action="edit" method="POST" enctype="multipart/form-data"
 		class="tm-contact-form mx-auto">
 		<!-- 제목 작성 -->
 		<div class="form-group" style="width: 500px">
-			<input type="text" name="title" class="form-control rounded-0" placeholder="제목" required /> 
+			<input type="text" name="title" class="form-control rounded-0" placeholder="제목" value="${ board.title }" required /> 
 		</div>
 		<!-- 파일 첨부 -->
-		<input type="file" name="attach" id="image" accept=".jpg" onchange="setThumbnail(event);" multiple/>
+		<input type="file" name="attach" id="image" accept=".jpg" onchange="setThumbnail(event);" multiple/><br>
+		<c:forEach var="file" items="${ attachList }">
+		${ file.userFileName }<br>
+		</c:forEach>
 		<!-- 내용 작성 -->
 		<div class="form-group" style="width: 500px;">
-			<textarea rows="20" name="content" class="form-control rounded-0" placeholder="내용" style="resize: none;" required></textarea> 
+			<textarea rows="20" name="content" class="form-control rounded-0" placeholder="내용" style="resize: none;" required>${ board.content }</textarea> 
 		</div>
 		<!-- 작성 버튼 및 취소 버튼 -->
 		<div class="form-group tm-text-right">
