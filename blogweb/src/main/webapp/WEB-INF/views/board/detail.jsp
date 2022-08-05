@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,23 +27,28 @@
 		<div class="row tm-mb-50">
 			<div class="my-col-lg-4 col-12 mb-5">
 				<div class="tm-address-col">
-					<h2 class="tm-text-primary mb-5" style="background: rgba(0, 0, 0, 0.3);">${ board.title }</h2>
+					<h2 class="tm-text-primary mb-5"
+						style="background: rgba(0, 0, 0, 0.3);">${ board.title }</h2>
 					<p class="tm-mb-20" style="background: rgba(0, 0, 0, 0.2);">
-					작성 날짜 : ${ board.regdate }	<br>작성자 : ${ board.name }</p>
-					<p class="tm-mb-50" style="background: rgba(0, 0, 0, 0.1);">${ board.content }</p>
-					
+						작성 날짜 : ${ board.regdate } <br>작성자 : ${ board.name }
+					</p>
+					<p class="tm-mb-50">${ board.content }</p>
+
 					<h3>이미지 박스</h3>
 					<c:forEach var="attach" items="${ attachList }">
-						<img src="/blogweb/resources/upload-files/${ attach.savedFileName }" alt="Image" class="img-fluid">
+						<a href="/blogweb/resources/upload-files/${ attach.savedFileName }"	data-fancybox>
+							<img src="/blogweb/resources/upload-files/${ attach.savedFileName }" alt="Image" class="img-fluid">
+						</a>
 					</c:forEach>
 				</div>
 				<br>
-				<button class="btn btn-primary" onclick="editBoard()">수정</button>
-				<button class="btn btn-primary" onclick="deleteBoard()">삭제</button>
+				<c:if test="${ loginuser.userNo eq board.writer }">
+					<button class="btn btn-primary" onclick="editBoard()">수정</button>
+					<button class="btn btn-primary" onclick="deleteBoard()">삭제</button>
+				</c:if>
 			</div>
 		</div>
 	</div>
-	<!-- container-fluid, tm-container-content -->
 	<script type="text/javascript">
 		function editBoard() {
 			location.href = "/blogweb/board/edit?boardNo=${ board.boardNo }";

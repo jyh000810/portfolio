@@ -53,7 +53,7 @@ public class BoardController {
 
 				try {
 					File path = new File(uploadDir, savedFileName);
-					file.transferTo(path); // 파일 저장
+					file.transferTo(path);
 					files.add(f);
 				} catch (Exception ex) {
 					ex.printStackTrace();
@@ -104,7 +104,7 @@ public class BoardController {
 
 				try {
 					File path = new File(uploadDir, savedFileName);
-					file.transferTo(path); // 파일 저장
+					file.transferTo(path);
 					files.add(f);
 				} catch (Exception ex) {
 					ex.printStackTrace();

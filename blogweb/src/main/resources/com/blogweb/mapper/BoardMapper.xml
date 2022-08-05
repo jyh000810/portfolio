@@ -45,7 +45,7 @@
 	</select>
 	<select id="findDetailByBoardNo" parameterType="int"
 		resultMap="boardResultMap">
-		SELECT b.board_no, b.title, u.name, b.content, b.regdate FROM user u JOIN board b 
+		SELECT b.board_no, b.title, b.writer, u.name, b.content, b.regdate FROM user u JOIN board b 
 		ON u.user_no = b.writer WHERE board_no = #{boardNo};
 	</select>
 	<select id="findAttachByBoardNo" parameterType="int"

@@ -51,7 +51,7 @@ public class MypageController {
 			user.setSavedFileName(savedFileName);
 			try {
 				File path = new File(uploadDir, savedFileName);
-				attach.transferTo(path); // 파일 저장
+				attach.transferTo(path);
 			} catch (Exception ex) {
 				ex.printStackTrace();
 			}

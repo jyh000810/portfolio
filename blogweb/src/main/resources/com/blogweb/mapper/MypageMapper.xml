@@ -12,6 +12,16 @@
 		<result column="savedfilename" property="savedFileName" />
 		<result column="userfilename" property="userFileName" />
 	</resultMap>
+	<resultMap type="Board" id="boardResultMap">
+		<id column="board_no" property="boardNo" />
+		<result column="title" property="title" />
+		<result column="writer" property="writer" />
+		<result column="content" property="content" />
+		<result column="thumbnail" property="thumbnail" />
+		<result column="regdate" property="regdate" />
+		<result column="deleted" property="deleted" />
+		<result column="name" property="name"/>
+	</resultMap>
 	<update id="editInfo" parameterType="User">
 		UPDATE user SET name = #{name}, email = #{email}, savedfilename = #{savedFileName},
 		userfilename = #{userFileName} WHERE user_no = #{userNo}
@@ -24,7 +34,7 @@
 		DELETE FROM user WHERE
 		user_no = #{userNo}
 	</delete>
-	<select id="boardInfo" parameterType="Int" resultType="board">
+	<select id="boardInfo" parameterType="Int" resultMap="boardResultMap">
 		SELECT *FROM board WHERE writer = #{userNo}
 	</select>
 </mapper>

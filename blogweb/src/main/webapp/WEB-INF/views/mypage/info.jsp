@@ -62,13 +62,11 @@
 			<tr>
 				<th style="width: 100px">글 제목</th>
 				<th style="width: 100px">작성날짜</th>
-				<th style="width: 150px">내용</th>
 			</tr>
 			<c:forEach var="board" items="${ boardList }">
-				<tr>
+				<tr onclick="location.href = '/blogweb/board/detail?boardNo=${ board.boardNo }';">
 					<td style="width: 100px">${ board.title }</td>
 					<td style="width: 100px">${ board.regdate }</td>
-					<td style="width: 150px">${ board.content }</td>
 				</tr>
 			</c:forEach>
 		</table>
@@ -81,6 +79,7 @@
 				location.href = 'userDelete?userNo=${ user.userNo }';
 			}
 		});
+		
 	</script>
 
 </body>
